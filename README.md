@@ -2,9 +2,17 @@
 Enjoy DDD on Scala 3. Dotty will soon be Scala 3.
 
 ## Quickstart
+sbt project compiled with Dotty
+
 ```zsh
 $ sbt run
 ```
+
+This is a normal sbt project, you can compile code with `sbt compile` and run it
+with `sbt run`, `sbt console` will start a Dotty REPL.
+
+For more information on the sbt-dotty plugin, see the
+[dotty-example-project](https://github.com/lampepfl/dotty-example-project/blob/master/README.md).
 
 ## About this project
 As for the name, it's correct whether you enjoy 'ddd on scala3' or 'scala3 on ddd'.  
