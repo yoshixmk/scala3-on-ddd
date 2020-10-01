@@ -4,6 +4,7 @@ import scala.concurrent.{ ExecutionContext, Future }
 import scala.language.higherKinds
 
 import domain.model.user.User
+import domain.model.user.UserId
 import domainInterface.adapter.ioGateway.UserRepository
 import domainInterface.usecase.user.CreateUserUseCase
 
@@ -13,9 +14,8 @@ class CreateUserUseCaseImpl[M[+_]] (
 
   override def call(arg: String)(implicit ec: ExecutionContext): Future[User] = {
     val name = arg
-  for {
-      user1 <- userRepository.store(User(name = name))
+      // user1 <- userRepository.store(User(name = name))
 //      user2 <- userRepository.store(User(name = name))
-    } yield user1
+    Future(User(UserId("1"), "foo"))
   }
 }

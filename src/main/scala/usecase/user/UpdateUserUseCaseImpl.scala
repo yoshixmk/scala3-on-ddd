@@ -14,13 +14,7 @@ class UpdateUserUseCaseImpl[M[+ _]] (
   override def call(arg: (UserId, String))(implicit ec: ExecutionContext): Future[Option[User]] = {
     val (userId, name) = arg
       for {
-        userOpt <- Option(User(1, "foo"))
-        res <- {
-          userOpt match {
-            case Some(x) => userRepository.update(x.copy(name = name))
-            case _ => none.point[M]
-          }
-        }
+        res <- Future(Option(User(UserId("1"), "foo")))
       } yield res
   }
 }

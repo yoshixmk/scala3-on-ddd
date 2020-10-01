@@ -8,13 +8,13 @@ trait UserConverter {
 
   def convertToDomainModel(dataModel: UserDataModel): User = {
     User(
-      id = UserId(dataModel.id),
+      id = UserId(dataModel.id.toString),
       name = dataModel.name)
   }
 
   def convertToDataModel(domainModel: User): UserDataModel = {
     UserDataModel(
-      id = domainModel.id.value,
+      id = 1,
       name = domainModel.name
     )
   }
