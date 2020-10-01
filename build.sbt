@@ -8,5 +8,7 @@ lazy val root = project
 
     scalaVersion := dottyVersion,
 
-    libraryDependencies += "com.novocode" % "junit-interface" % "0.11" % "test"
+    libraryDependencies ++= Seq(
+      "mysql" % "mysql-connector-java" % "8.0.21",
+    )
   )
