@@ -7,8 +7,8 @@ import domain.model.user.{ User, UserId }
 import domainInterface.adapter.ioGateway.UserRepository
 import domainInterface.usecase.user.UpdateUserUseCase
 
-class UpdateUserUseCaseImpl[M[+ _]] (
-  userRepository: UserRepository[M],
+class UpdateUserUseCaseImpl (
+  userRepository: UserRepository,
 ) extends UpdateUserUseCase {
 
   override def call(arg: (UserId, String))(implicit ec: ExecutionContext): Future[Option[User]] = {

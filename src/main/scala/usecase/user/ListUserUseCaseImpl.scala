@@ -9,8 +9,8 @@ import domain.model.user.UserId
 import domainInterface.adapter.ioGateway.UserRepository
 import domainInterface.usecase.user.ListUserUseCase
 
-class ListUserUseCaseImpl[M[+_]] (
-  userRepository: UserRepository[M],
+class ListUserUseCaseImpl (
+  userRepository: UserRepository,
 ) extends ListUserUseCase {
 
   override def call(arg: Unit)(implicit ec: ExecutionContext): Future[Seq[User]] = {
