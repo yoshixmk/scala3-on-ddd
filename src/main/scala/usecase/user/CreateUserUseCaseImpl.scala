@@ -8,8 +8,8 @@ import domain.model.user.UserId
 import domainInterface.adapter.ioGateway.UserRepository
 import domainInterface.usecase.user.CreateUserUseCase
 
-class CreateUserUseCaseImpl[M[+_]] (
-  userRepository: UserRepository[M],
+class CreateUserUseCaseImpl (
+  userRepository: UserRepository,
   ) extends CreateUserUseCase {
 
   override def call(arg: String)(implicit ec: ExecutionContext): Future[User] = {

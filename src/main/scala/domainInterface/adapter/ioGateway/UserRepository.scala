@@ -6,15 +6,15 @@ import scala.language.higherKinds
 
 import domain.model.user.{ User, UserId }
 
-trait UserRepository[M[+_]] extends Repository[UserId, User] {
+trait UserRepository extends Repository[UserId, User] {
 
-  def resolveById(id: UserId): M[Option[User]]
+  def resolveById(id: UserId): Option[User]
 
-  def resolveAll: M[Seq[User]]
+  def resolveAll: Seq[User]
 
-  def update(entity: User): M[Option[User]]
+  def update(entity: User): Option[User]
 
-  def store(entity: User): M[User]
+  def store(entity: User): User
 
-  def deleteById(id: UserId): M[Boolean]
+  def deleteById(id: UserId): Boolean
 }
