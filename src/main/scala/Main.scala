@@ -1,7 +1,8 @@
 import adapter.input.controller.user.UserController
 import domainInterface.usecase.user.CreateUserUseCase
 import usecase.user.CreateUserUseCaseImpl
-import domainInterface.adapter.ioGateway.UserRepository
+import domainInterface.adapter.ioGateway.UserRepositoryImpl
+import adapter.output.presenter.user.CreateUserResultPresenterImpl
 
 object Main {
 
@@ -12,9 +13,19 @@ object Main {
     // ↓
     // UserController << call/return >> CreateUserResultPresenter
 
-    println(msg)
-  }
+    object DddFamily {
+      private val repository = UserRepositoryImpl()
 
-  def msg = "I was compiled by dotty :)"
+      private val usecase = CreateUserUseCaseImpl(repository)
+
+      private val presenter = CreateUserResultPresenterImpl()
+
+      val controller = UserController(usecase, presenter)
+
+      def execute() = controller.create
+    }
+
+    println(DddFamily.execute())
+  }
 
 }

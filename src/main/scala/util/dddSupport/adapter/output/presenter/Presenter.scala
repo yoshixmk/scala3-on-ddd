@@ -7,5 +7,5 @@ trait Presenter[A, R] {
   type Arg = A
   type Rendered = R
 
-  def response(arg: Arg)(implicit ec: ExecutionContext): Future[Rendered]
+  def response(arg: Arg): Future[Rendered]
 }

@@ -10,16 +10,16 @@ trait Controller
 
 class UserController (
   createUserUseCase: CreateUserUseCase,
-  updateUserUseCase: UpdateUserUseCase,
-  deleteUserUseCase: DeleteUserUseCase,
-  listUserUseCase: ListUserUseCase,
-  createUserResultPresenter: CreateUserResultPresenter[Any],
-  updateUserResultPresenter: UpdateUserResultPresenter[Any],
-  deleteUserResultPresenter: DeleteUserResultPresenter[Any],
-  listUserResultPresenter: ListUserResultPresenter[Any]
+  // updateUserUseCase: UpdateUserUseCase,
+  // deleteUserUseCase: DeleteUserUseCase,
+  // listUserUseCase: ListUserUseCase,
+  createUserResultPresenter: CreateUserResultPresenter[String],
+  // updateUserResultPresenter: UpdateUserResultPresenter[Any],
+  // deleteUserResultPresenter: DeleteUserResultPresenter[Any],
+  // listUserResultPresenter: ListUserResultPresenter[Any]
 ) extends Controller {
 
-  def create = null
+  def create = "user created"
 
   def update = null
 
