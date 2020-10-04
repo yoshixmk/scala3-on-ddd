@@ -7,5 +7,3 @@ case class User(
   name: String) extends Entity[UserId] {
   override val identifier: UserId = id
 }
-
-object User { }

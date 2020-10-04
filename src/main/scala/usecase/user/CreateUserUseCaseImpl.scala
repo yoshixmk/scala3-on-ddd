@@ -1,6 +1,5 @@
 package usecase.user
 
-import scala.concurrent.{ ExecutionContext, Future }
 import scala.language.higherKinds
 
 import domain.model.user.User
@@ -12,10 +11,10 @@ class CreateUserUseCaseImpl (
   userRepository: UserRepository,
   ) extends CreateUserUseCase {
 
-  override def call(arg: String)(implicit ec: ExecutionContext): Future[User] = {
+  override def call(arg: String): User = {
     val name = arg
       // user1 <- userRepository.store(User(name = name))
-//      user2 <- userRepository.store(User(name = name))
-    Future(User(UserId("1"), "foo"))
+      //      user2 <- userRepository.store(User(name = name))
+    User(UserId("1"), name)
   }
 }

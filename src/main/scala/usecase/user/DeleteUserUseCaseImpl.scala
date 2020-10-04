@@ -1,6 +1,5 @@
 package usecase.user
 
-import scala.concurrent.{ ExecutionContext, Future }
 import scala.language.higherKinds
 
 import domain.model.user.UserId
@@ -11,9 +10,9 @@ class DeleteUserUseCaseImpl (
   userRepository: UserRepository,
 ) extends DeleteUserUseCase {
 
-  override def call(arg: UserId)(implicit ec: ExecutionContext): Future[Boolean] = {
+  override def call(arg: UserId): Boolean = {
     val userId = arg
     // userRepository.deleteById(userId)
-    return Future(true)
+    return true
   }
 }

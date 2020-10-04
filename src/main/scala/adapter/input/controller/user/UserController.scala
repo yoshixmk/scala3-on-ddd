@@ -1,12 +1,19 @@
 package adapter.input.controller.user
 
-import scala.concurrent.Future
-
 import domain.model.user.UserId
+import domain.model.user.User
 import domainInterface.adapter.output.{ CreateUserResultPresenter, DeleteUserResultPresenter, ListUserResultPresenter, UpdateUserResultPresenter }
 import domainInterface.usecase.user.{ CreateUserUseCase, DeleteUserUseCase, ListUserUseCase, UpdateUserUseCase }
 
-trait Controller
+trait Controller[T] {
+  def create: T
+
+  def update: T
+
+  def delete: T
+
+  def list: Seq[T]
+}
 
 class UserController (
   createUserUseCase: CreateUserUseCase,
@@ -17,14 +24,16 @@ class UserController (
   // updateUserResultPresenter: UpdateUserResultPresenter[Any],
   // deleteUserResultPresenter: DeleteUserResultPresenter[Any],
   // listUserResultPresenter: ListUserResultPresenter[Any]
-) extends Controller {
+) extends Controller[User] {
 
-  def create = "user created"
+  def create: User = createUserUseCase.call("username")
 
-  def update = null
+  // def read: User
 
-  def delete = ???
+  def update: User = ???
 
-  def list = ???
+  def delete: User = ???
+
+  def list: Seq[User] = ???
 
 }

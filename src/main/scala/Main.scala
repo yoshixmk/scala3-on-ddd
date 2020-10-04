@@ -22,10 +22,13 @@ object Main {
 
       val controller = UserController(usecase, presenter)
 
-      def execute() = controller.create
+      def execute() = {
+        val newUser = controller.create
+        println(s"created user. id = ${newUser.id} name = ${newUser.name}")
+      }
     }
 
-    println(DddFamily.execute())
+    DddFamily.execute()
   }
 
 }

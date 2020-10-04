@@ -1,7 +1,5 @@
 package usecase.user
 
-import scala.concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.{ ExecutionContext, Future }
 import scala.language.higherKinds
 
 import domain.model.user.User
@@ -13,7 +11,7 @@ class ListUserUseCaseImpl (
   userRepository: UserRepository,
 ) extends ListUserUseCase {
 
-  override def call(arg: Unit)(implicit ec: ExecutionContext): Future[Seq[User]] = {
-    Future(Seq(User(UserId("1"), "foo")))
+  override def call(arg: Unit): Seq[User] = {
+    Seq(User(UserId("1"), "foo"))
   }
 }

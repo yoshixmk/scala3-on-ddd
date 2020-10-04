@@ -1,6 +1,5 @@
 package usecase.user
 
-import scala.concurrent.{ ExecutionContext, Future }
 import scala.language.higherKinds
 
 import domain.model.user.{ User, UserId }
@@ -11,10 +10,10 @@ class UpdateUserUseCaseImpl (
   userRepository: UserRepository,
 ) extends UpdateUserUseCase {
 
-  override def call(arg: (UserId, String))(implicit ec: ExecutionContext): Future[Option[User]] = {
+  override def call(arg: (UserId, String)): Option[User] = {
     val (userId, name) = arg
       for {
-        res <- Future(Option(User(UserId("1"), "foo")))
+        res <- Option(User(UserId("1"), "foo"))
       } yield res
   }
 }
