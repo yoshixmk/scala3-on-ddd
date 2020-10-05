@@ -13,8 +13,6 @@ class CreateUserUseCaseImpl (
 
   override def call(arg: String): User = {
     val name = arg
-      // user1 <- userRepository.store(User(name = name))
-      //      user2 <- userRepository.store(User(name = name))
-    User(UserId("1"), name)
+    this.userRepository.store(User(name = name))
   }
 }
