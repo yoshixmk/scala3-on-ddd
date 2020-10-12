@@ -1,6 +1,6 @@
 package adapter.ioGateway.repository.user
 
-import domain.model.user.{ User, UserId }
+import domain.model.user.{ User, UserId, Name }
 
 case class UserDataModel(id: Int, name: String)
 
@@ -15,7 +15,10 @@ trait UserConverter {
   def convertToDataModel(domainModel: User): UserDataModel = {
     UserDataModel(
       id = 1,
-      name = domainModel.name
+      name = domainModel.name match {
+        case s: String => s
+        case n: Name => n.fullName
+      }
     )
   }
 
