@@ -7,16 +7,16 @@ class UserRepositoryImpl extends UserRepository {
 
   import scala.collection.immutable.Seq
   // dummy store
-  private val store = Seq[User]()
+  private var store = Seq[User]()
 
-  def resolveById(id: UserId): Option[User] = ???
+  def resolveById(id: UserId): Option[User] = this.store.find(_.id == id)
 
-  def resolveAll: Seq[User] = ???
+  def resolveAll: Seq[User] = this.store
 
   def update(entity: User): Option[User] = ???
 
   def store(entity: User): User = {
-    this.store :+ entity
+    this.store = this.store :+ entity
     entity
   }
 

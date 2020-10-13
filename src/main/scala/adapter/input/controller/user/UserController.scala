@@ -19,21 +19,21 @@ class UserController (
   createUserUseCase: CreateUserUseCase,
   // updateUserUseCase: UpdateUserUseCase,
   // deleteUserUseCase: DeleteUserUseCase,
-  // listUserUseCase: ListUserUseCase,
+  listUserUseCase: ListUserUseCase,
   createUserResultPresenter: CreateUserResultPresenter[String],
   // updateUserResultPresenter: UpdateUserResultPresenter[Any],
   // deleteUserResultPresenter: DeleteUserResultPresenter[Any],
-  // listUserResultPresenter: ListUserResultPresenter[Any]
+  listUserResultPresenter: ListUserResultPresenter[String]
 ) extends Controller[User] {
 
   def create: User = createUserUseCase.call("username")
 
-  // defread: User
+  // def read: User
 
   def update: User = ???
 
   def delete: User = ???
 
-  def list: Seq[User] = ???
+  def list: Seq[User] = listUserUseCase.call()
 
 }

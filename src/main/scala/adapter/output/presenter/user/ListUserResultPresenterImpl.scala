@@ -1,12 +1,9 @@
 package adapter.output.presenter.user
 
-import scala.concurrent.{ ExecutionContext, Future }
-
 import domain.model.user.User
-
-trait ListUserResultPresenter
+import domainInterface.adapter.output.ListUserResultPresenter
 
 class ListUserResultPresenterImpl
-  extends ListUserResultPresenter {
-
+  extends ListUserResultPresenter[String] {
+  def response(arg: Seq[String]): String = "example"
 }

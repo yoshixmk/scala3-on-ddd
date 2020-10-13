@@ -6,5 +6,6 @@ import scala.language.higherKinds
 
 import domain.model.user.User
 
-trait ListUserUseCase
-  extends UseCase with PushPort[Unit, Seq[User]]
+trait ListUserUseCase {
+  def call(): Seq[User]
+}

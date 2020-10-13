@@ -11,7 +11,6 @@ class ListUserUseCaseImpl (
   userRepository: UserRepository,
 ) extends ListUserUseCase {
 
-  override def call(arg: Unit): Seq[User] = {
-    Seq(User(UserId("1"), "foo"))
-  }
+  override def call(): Seq[User] = 
+    userRepository.resolveAll
 }
