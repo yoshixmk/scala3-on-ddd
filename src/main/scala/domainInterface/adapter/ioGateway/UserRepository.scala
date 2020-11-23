@@ -10,7 +10,7 @@ trait UserRepository extends Repository[UserId, User] {
 
   def resolveById(id: UserId): Option[User]
 
-  def resolveAll: Seq[User]
+  def resolveAll: scala.collection.mutable.Seq[User]
 
   def update(entity: User): Option[User]
 

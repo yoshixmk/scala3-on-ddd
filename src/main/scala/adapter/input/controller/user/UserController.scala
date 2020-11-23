@@ -12,7 +12,7 @@ trait Controller[T] {
 
   def delete: T
 
-  def list: Seq[T]
+  def list: scala.collection.mutable.Seq[T]
 }
 
 class UserController (
@@ -34,6 +34,6 @@ class UserController (
 
   def delete: User = ???
 
-  def list: Seq[User] = listUserUseCase.call()
+  def list: scala.collection.mutable.Seq[User] = listUserUseCase.call()
 
 }

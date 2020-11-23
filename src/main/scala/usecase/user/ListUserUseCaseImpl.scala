@@ -11,6 +11,6 @@ class ListUserUseCaseImpl (
   userRepository: UserRepository,
 ) extends ListUserUseCase {
 
-  override def call(): Seq[User] = 
+  override def call(): scala.collection.mutable.Seq[User] = 
     userRepository.resolveAll
 }

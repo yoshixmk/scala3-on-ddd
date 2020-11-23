@@ -7,5 +7,5 @@ import scala.language.higherKinds
 import domain.model.user.User
 
 trait ListUserUseCase {
-  def call(): Seq[User]
+  def call(): scala.collection.mutable.Seq[User]
 }

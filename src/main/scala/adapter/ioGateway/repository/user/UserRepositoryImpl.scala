@@ -5,7 +5,7 @@ import domain.model.user._
 
 class UserRepositoryImpl extends UserRepository {
 
-  import scala.collection.immutable.Seq
+  import scala.collection.mutable.Seq
   // dummy store
   private var store = Seq[User]()
 
@@ -13,12 +13,22 @@ class UserRepositoryImpl extends UserRepository {
 
   def resolveAll: Seq[User] = this.store
 
-  def update(entity: User): Option[User] = ???
+  def update(entity: User): Option[User] = {
+    val i = this.store.map(_.id).indexOf(entity.id)
+    this.store.update(i, entity)
+    return if (i >= 0) Some(entity) else None
+  }
 
   def store(entity: User): User = {
     this.store = this.store :+ entity
     entity
   }
 
-  def deleteById(id: UserId): Boolean = ???
+  def deleteById(id: UserId): Boolean = {
+    val ret = this.store.exists(_.id == id)
+    if (ret) {
+      this.store = this.store.filter(_.id == id)
+    }
+    return ret
+  }
 } 
