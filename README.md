@@ -1,4 +1,5 @@
 # scala3-on-ddd
+WIP:  
 Enjoy DDD on Scala 3. Dotty will soon be Scala 3.
 
 ## Quickstart
